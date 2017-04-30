@@ -2,22 +2,7 @@
   "TheMenu": {
     "description": "Menu of the-components",
     "displayName": "TheMenu",
-    "methods": [
-      {
-        "name": "Item",
-        "docblock": null,
-        "modifiers": [
-          "static"
-        ],
-        "params": [
-          {
-            "name": "props",
-            "type": null
-          }
-        ],
-        "returns": null
-      }
-    ],
+    "methods": [],
     "props": {
       "grid": {
         "type": {
@@ -25,6 +10,46 @@
         },
         "required": false,
         "description": "Grid layout",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "TheMenuItem": {
+    "description": "Menu of the-components",
+    "displayName": "TheMenuItem",
+    "methods": [],
+    "props": {
+      "icon": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Icon class name",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "to": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Link to",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Active or not",
         "defaultValue": {
           "value": "false",
           "computed": false
