@@ -27,7 +27,13 @@ TheMenuStyle.defaultProps = {
 TheMenuStyle.data = (options) => {
   const { ThemeValues } = TheStyle
   let {
-    dominantColor = ThemeValues.dominantColor
+    backgroundColor = ThemeValues.backgroundColor,
+    contentWidth = ThemeValues.contentWidth,
+    lightBorderColor = ThemeValues.lightBorderColor,
+    tappableHeight = ThemeValues.tappableHeight,
+    lightLinkColor = ThemeValues.lightLinkColor,
+    hoverOpacity = ThemeValues.hoverOpacity,
+    activeOpacity = ThemeValues.activeOpacity,
   } = options
   return Object.assign({},
     asStyleData('.the-menu', {
@@ -36,21 +42,38 @@ TheMenuStyle.data = (options) => {
         flexDirection: 'column',
         listStyle: 'none',
         padding: 0,
-        margin: 0
+        margin: '8px 0',
+        backgroundColor,
+        maxWidth: contentWidth
       },
       '.the-menu-item': {
         padding: 0,
-        margin: 0
+        margin: 0,
+        borderBottom: `1px solid ${lightBorderColor}`,
+        cursor: 'pointer'
+      },
+      '.the-menu-item:hover': {
+        opacity: hoverOpacity
+      },
+      '.the-menu-item:active': {
+        opacity: activeOpacity
+      },
+      '.the-menu-item-active,.the-menu-item-active:hover,.the-menu-item-active:active': {
+        opacity: 1,
+        cursor: 'default'
       },
       '.the-menu-item-inner': {
         display: 'flex',
         color: 'inherit',
         textDecoration: 'none',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        minHeight: tappableHeight,
+        padding: '0 4px'
       },
       '.the-menu-item-icon': {},
-      '.the-menu-item-text': {}
+      '.the-menu-item-text': {},
+      '.the-menu-end': { display: 'none' }
     }),
     asStyleData('.the-menu.the-menu-grid', {
       '': {
@@ -58,15 +81,28 @@ TheMenuStyle.data = (options) => {
         alignItems: 'center',
         flexDirection: 'row'
       },
+      '.the-menu-item': {
+        border: 'none',
+        minWidth: '20%'
+      },
       '.the-menu-item-inner': {
-        textDecoration: 'center',
-        flexDirection: 'column'
+        textDecoration: 'none',
+        flexDirection: 'column',
+        padding: '16px'
       },
       '.the-menu-item-icon': {
         fontSize: '2em'
       },
       '.the-menu-item-text': {
         fontSize: 'smaller'
+      },
+      '.ap-menu-end': {
+        flex: 'auto',
+        display: 'inline-block',
+        width: 0,
+        height: 0,
+        opacity: 0,
+        pointerEvents: 'none'
       }
     })
   )

@@ -19,19 +19,22 @@ class TheMenuItem extends React.PureComponent {
       children,
       text,
       to,
-      icon
+      icon,
+      active
     } = props
+    const Inner = to ? TheLink : 'span'
     return (
       <li { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
           { ...eventHandlersFor(props, { except: [] })}
-          className={ classnames('the-menu-item', className) }
+          className={ classnames('the-menu-item', className, {
+            'the-menu-item-active': active
+          }) }
       >
-        <TheLink to={ to } className='the-menu-item-inner'>
+        <Inner to={ to } className='the-menu-item-inner'>
           <TheIcon className={classnames('the-menu-item-icon', icon)}/>
           <span className='the-menu-item-text'>{text}</span>
           <span className='the-menu-item-children'>{children}</span>
-
-        </TheLink>
+        </Inner>
       </li>
     )
   }
@@ -41,12 +44,15 @@ TheMenuItem.propTypes = {
   /** Icon class name */
   icon: PropTypes.string,
   /** Link to */
-  to: PropTypes.string
+  to: PropTypes.string,
+  /** Active or not */
+  active: PropTypes.bool
 }
 
 TheMenuItem.defaultProps = {
   icon: null,
-  to: null
+  to: null,
+  active: false
 }
 
 TheMenuItem.displayName = 'TheMenuItem'

@@ -27,6 +27,8 @@ class TheMenu extends React.PureComponent {
           }) }
       >
         {children}
+        <li className='the-menu-end'>
+        </li>
       </ul>
     )
   }
