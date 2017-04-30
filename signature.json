@@ -1,0 +1,53 @@
+{
+  "TheMenu": {
+    "description": "Menu of the-components",
+    "displayName": "TheMenu",
+    "methods": [
+      {
+        "name": "Item",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "grid": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Grid layout",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
+  },
+  "TheMenuStyle": {
+    "description": "Style for TheMenu",
+    "displayName": "TheMenuStyle",
+    "methods": [],
+    "props": {
+      "options": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style options",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
+      }
+    }
+  }
+}
