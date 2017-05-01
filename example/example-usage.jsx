@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react'
-import { TheMenu, TheMenuStyle } from 'the-menu'
+import { TheMenu, TheDropdownMenu, TheMenuStyle } from 'the-menu'
 import { TheRouter } from 'the-router'
 
 class ExampleComponent extends React.PureComponent {
@@ -32,7 +32,27 @@ class ExampleComponent extends React.PureComponent {
           <div>
             <ExampleMenu grid/>
           </div>
+
+          <hr/>
+
+          <h3>Drop Down</h3>
+
+          <TheDropdownMenu label='Try me!'>
+            <TheDropdownMenu.Item>foo</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>bar</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>baz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>quz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
+          </TheDropdownMenu>
+
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         </TheRouter.Hash>
+
       </div>
     )
   }

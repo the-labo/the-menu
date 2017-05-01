@@ -75,7 +75,7 @@ Usage
 'use strict'
 
 import React from 'react'
-import { TheMenu, TheMenuStyle } from 'the-menu'
+import { TheMenu, TheDropdownMenu, TheMenuStyle } from 'the-menu'
 import { TheRouter } from 'the-router'
 
 class ExampleComponent extends React.PureComponent {
@@ -106,7 +106,27 @@ class ExampleComponent extends React.PureComponent {
           <div>
             <ExampleMenu grid/>
           </div>
+
+          <hr/>
+
+          <h3>Drop Down</h3>
+
+          <TheDropdownMenu label='Try me!'>
+            <TheDropdownMenu.Item>foo</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>bar</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>baz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>quz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
+          </TheDropdownMenu>
+
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         </TheRouter.Hash>
+
       </div>
     )
   }
@@ -126,6 +146,16 @@ export default ExampleComponent
 Components
 -----------
 
+### TheDropDownMenu
+
+Drop down menu
+
+**Props**
+
+| Name | Type | Description | Default |
+| --- | --- | ---- | ---- |
+| `label` | node  | Label for toggle button | `` |
+
 ### TheMenu
 
 Menu of the-components
@@ -135,6 +165,18 @@ Menu of the-components
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `grid` | bool  | Grid layout | `false` |
+
+### TheMenuItem
+
+Menu of the-components
+
+**Props**
+
+| Name | Type | Description | Default |
+| --- | --- | ---- | ---- |
+| `icon` | string  | Icon class name | `null` |
+| `to` | string  | Link to | `null` |
+| `active` | bool  | Active or not | `false` |
 
 ### TheMenuStyle
 

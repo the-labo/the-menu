@@ -32,7 +32,6 @@ class TheMenu extends React.PureComponent {
       </ul>
     )
   }
-
 }
 
 TheMenu.Style = TheMenuStyle

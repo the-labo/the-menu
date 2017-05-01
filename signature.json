@@ -1,4 +1,54 @@
 {
+  "TheDropDownMenu": {
+    "description": "Drop down menu",
+    "displayName": "TheDropDownMenu",
+    "methods": [
+      {
+        "name": "toggleDropDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "Button",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Item",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "label": {
+        "type": {
+          "name": "node"
+        },
+        "required": true,
+        "description": "Label for toggle button"
+      }
+    }
+  },
   "TheMenu": {
     "description": "Menu of the-components",
     "displayName": "TheMenu",

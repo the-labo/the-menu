@@ -28,12 +28,15 @@ TheMenuStyle.data = (options) => {
   const { ThemeValues } = TheStyle
   let {
     backgroundColor = ThemeValues.backgroundColor,
+    overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
+    overlayBorderColor = ThemeValues.overlayBorderColor,
     contentWidth = ThemeValues.contentWidth,
     lightBorderColor = ThemeValues.lightBorderColor,
     tappableHeight = ThemeValues.tappableHeight,
     lightLinkColor = ThemeValues.lightLinkColor,
     hoverOpacity = ThemeValues.hoverOpacity,
     activeOpacity = ThemeValues.activeOpacity,
+    animationDuration = 200
   } = options
   return Object.assign({},
     asStyleData('.the-menu', {
@@ -103,6 +106,65 @@ TheMenuStyle.data = (options) => {
         height: 0,
         opacity: 0,
         pointerEvents: 'none'
+      }
+    }),
+    asStyleData('.the-dropdown-menu', {
+      '&': {
+        position: 'relative',
+        display: 'inline-block',
+        maxWidth: contentWidth
+      },
+      '.the-dropdown-menu-button': {
+        display: 'flex',
+        alignItems: 'center',
+        borderColor: '#AAA',
+        cursor: 'pointer',
+        '&:hover': { opacity: hoverOpacity },
+        '&:active': { opacity: activeOpacity },
+        '.the-dropdown-menu-button-text': {
+          width: '100%'
+        },
+        '.the-dropdown-menu-button-icon': {
+          transformOrigin: '50% 50%',
+          transform: 'rotate(-180deg)',
+          transition: 'transform 100ms',
+          boxSizing: 'border-box',
+          textAlign: 'center',
+          width: '1em',
+          height: '1em'
+        }
+      },
+      '.the-dropdown-menu-inner': {
+        position: 'absolute',
+        zIndex: 8,
+        minWidth: '100%',
+        maxWidth: contentWidth,
+        backgroundColor: overlayBackgroundColor,
+        border: `1px solid transparent`,
+        overflow: 'hidden',
+        boxShadow: '0px 0px 0px rgba(0,0,0,0.33)',
+        transition: `box-shadow ${animationDuration}ms, border-color ${animationDuration}ms`,
+      },
+      '.the-menu': {
+        margin: 0
+      },
+      '.the-menu-item': {
+        transition: `max-height ${animationDuration}ms`,
+        maxHeight: '0em',
+        marginBottom: '-1px'
+      },
+      '&.the-dropdown-menu-open': {
+        '.the-menu-item': {
+          maxHeight: '3em',
+          margin: 0
+        },
+        '.the-dropdown-menu-button-icon': {
+          transform: 'rotate(0deg)'
+        },
+        '.the-dropdown-menu-inner': {
+          borderColor: overlayBorderColor,
+          boxShadow: '2px 2px 4px rgba(0,0,0,0.33)'
+        }
       }
     })
   )
