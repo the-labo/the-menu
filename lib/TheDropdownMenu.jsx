@@ -16,7 +16,7 @@ class TheDropDownMenu extends React.PureComponent {
   constructor (props) {
     super(props)
     const s = this
-    s.state = { open: false }
+    s.state = { open: props.open }
   }
 
   render () {
@@ -80,10 +80,14 @@ TheDropDownMenu.UP_ICON = 'fa fa-caret-up'
 
 TheDropDownMenu.propTypes = {
   /** Label for toggle button */
-  label: PropTypes.node.isRequired
+  label: PropTypes.node.isRequired,
+  /** Open  when mounted */
+  open: PropTypes.bool
 }
 
-TheDropDownMenu.defaultProps = {}
+TheDropDownMenu.defaultProps = {
+  open: false
+}
 
 TheDropDownMenu.displayName = 'TheDropDownMenu'
 

@@ -155,6 +155,7 @@ Drop down menu
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `label` | node  | Label for toggle button | `` |
+| `open` | bool  | Open  when mounted | `false` |
 
 ### TheMenu
 

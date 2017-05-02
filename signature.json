@@ -46,6 +46,17 @@
         },
         "required": true,
         "description": "Label for toggle button"
+      },
+      "open": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Open  when mounted",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },
