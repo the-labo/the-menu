@@ -22,14 +22,20 @@ class TheDropDownMenu extends React.PureComponent {
   render () {
     const s = this
     const { props, state } = s
-    let { className, label, children } = props
+    let {
+      className,
+      label,
+      righted,
+      children
+    } = props
     let { open } = state
     const { Button } = TheDropDownMenu
     return (
       <div { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
            { ...eventHandlersFor(props, { except: [] })}
            className={ classnames('the-dropdown-menu', className, {
-             'the-dropdown-menu-open': open
+             'the-dropdown-menu-open': open,
+             'the-dropdown-menu-righted': righted
            }) }
       >
         <Button onClick={(e) => s.toggleDropDown()}>{label}</Button>
@@ -82,11 +88,15 @@ TheDropDownMenu.propTypes = {
   /** Label for toggle button */
   label: PropTypes.node.isRequired,
   /** Open  when mounted */
-  open: PropTypes.bool
+  open: PropTypes.bool,
+
+  /** Show on righthand */
+  righted: PropTypes.bool
 }
 
 TheDropDownMenu.defaultProps = {
-  open: false
+  open: false,
+  righted: false
 }
 
 TheDropDownMenu.displayName = 'TheDropDownMenu'

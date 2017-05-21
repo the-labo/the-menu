@@ -57,6 +57,17 @@
           "value": "false",
           "computed": false
         }
+      },
+      "righted": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Show on righthand",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },

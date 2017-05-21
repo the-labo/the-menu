@@ -72,7 +72,7 @@ TheMenuStyle.data = (options) => {
         flexDirection: 'row',
         alignItems: 'center',
         minHeight: tappableHeight,
-        padding: '0 4px'
+        padding: '0 8px'
       },
       '.the-menu-item-icon': {},
       '.the-menu-item-text': {},
@@ -137,7 +137,8 @@ TheMenuStyle.data = (options) => {
       '.the-dropdown-menu-inner': {
         position: 'absolute',
         zIndex: 8,
-        minWidth: '100%',
+        width: '100%',
+        minWidth: tappableHeight * 3,
         maxWidth: contentWidth,
         backgroundColor: overlayBackgroundColor,
         border: `1px solid transparent`,
@@ -164,6 +165,12 @@ TheMenuStyle.data = (options) => {
         '.the-dropdown-menu-inner': {
           borderColor: overlayBorderColor,
           boxShadow: '2px 2px 4px rgba(0,0,0,0.33)'
+        }
+      },
+      '&.the-dropdown-menu-righted': {
+        '.the-dropdown-menu-inner': {
+          left: 'auto',
+          right: '0'
         }
       }
     })
