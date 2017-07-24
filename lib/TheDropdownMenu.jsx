@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TheMenu from './TheMenu'
 import TheMenuItem from './TheMenuItem'
+import { get } from 'the-window'
 import TheIcon from 'the-icon'
 
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
@@ -16,51 +17,85 @@ class TheDropDownMenu extends React.PureComponent {
   constructor (props) {
     super(props)
     const s = this
-    s.state = { open: props.open }
+    s.state = {open: props.open}
+    s.handleDocumentClick = s.handleDocumentClick.bind(s)
+    s.elm = null
   }
 
   render () {
     const s = this
-    const { props, state } = s
-    let {
+    const {props, state} = s
+    const {
       className,
       label,
       righted,
       children
     } = props
-    let { open } = state
-    const { Button } = TheDropDownMenu
+    const {open} = state
+    const {Button} = TheDropDownMenu
     return (
-      <div { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-           { ...eventHandlersFor(props, { except: [] })}
-           className={ classnames('the-dropdown-menu', className, {
+      <div {...htmlAttributesFor(props, {except: ['className']})}
+           {...eventHandlersFor(props, {except: []})}
+           className={classnames('the-dropdown-menu', className, {
              'the-dropdown-menu-open': open,
              'the-dropdown-menu-righted': righted
-           }) }
+           })}
       >
-        <Button onClick={(e) => s.toggleDropDown()}>{label}</Button>
-        <div className='the-dropdown-menu-inner'>
-          <TheMenu>{children}</TheMenu>
+        <div className='the-dropdown-menu-content'
+             ref={(elm) => { s.elm = elm }}>
+          <Button onClick={(e) => s.toggleDropDown()}>{label}</Button>
+          <div className='the-dropdown-menu-inner'>
+            <TheMenu>{children}</TheMenu>
+          </div>
         </div>
       </div>
     )
   }
 
-  toggleDropDown () {
+  toggleDropDown (open) {
     const s = this
+    if (arguments.length === 0) {
+      open = !s.state.open
+    }
     s.setState({
-      open: !s.state.open
+      open
     })
   }
 
+  componentDidMount () {
+    const s = this
+    const window = get('window')
+    window.addEventListener('click', s.handleDocumentClick)
+  }
+
+  componentWillUnmount () {
+    const s = this
+    const window = get('window')
+    window.removeEventListener('click', s.handleDocumentClick)
+  }
+
+  handleDocumentClick (e) {
+    const s = this
+    const {elm} = s
+
+    if (!elm) {
+      return
+    }
+    const inside = elm.contains(e.target)
+    console.log('inside', inside)
+    if (!inside) {
+      s.toggleDropDown(false)
+    }
+  }
+
   static Button (props) {
-    let {
+    const {
       className,
       children
     } = props
     return (
-      <a { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-         { ...eventHandlersFor(props, { except: [] })}
+      <a {...htmlAttributesFor(props, {except: ['className']})}
+         {...eventHandlersFor(props, {except: []})}
          className={classnames('the-dropdown-menu-button', className)}
       >
         <span className='the-dropdown-menu-button-text'>
@@ -73,7 +108,7 @@ class TheDropDownMenu extends React.PureComponent {
   }
 
   static Item (props) {
-    let { className } = props
+    const {className} = props
     return (
       <TheMenuItem {...props}
                    className={classnames('the-dropdown-menu-item', className)}

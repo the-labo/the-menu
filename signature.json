@@ -11,6 +11,18 @@
         "returns": null
       },
       {
+        "name": "handleDocumentClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "Button",
         "docblock": null,
         "modifiers": [
@@ -19,6 +31,10 @@
         "params": [
           {
             "name": "props",
+            "type": null
+          },
+          {
+            "name": "aRef",
             "type": null
           }
         ],
