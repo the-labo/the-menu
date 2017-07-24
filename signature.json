@@ -7,7 +7,12 @@
         "name": "toggleDropDown",
         "docblock": null,
         "modifiers": [],
-        "params": [],
+        "params": [
+          {
+            "name": "open",
+            "type": null
+          }
+        ],
         "returns": null
       },
       {
@@ -31,10 +36,6 @@
         "params": [
           {
             "name": "props",
-            "type": null
-          },
-          {
-            "name": "aRef",
             "type": null
           }
         ],
