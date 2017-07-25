@@ -82,7 +82,6 @@ class TheDropDownMenu extends React.PureComponent {
       return
     }
     const inside = elm.contains(e.target)
-    console.log('inside', inside)
     if (!inside) {
       s.toggleDropDown(false)
     }
