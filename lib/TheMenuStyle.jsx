@@ -7,10 +7,10 @@ import TheStyle from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheMenu */
-const TheMenuStyle = ({ id, className, options }) => (
-  <TheStyle { ...{ id } }
-            className={ classnames('the-menu-style', className) }
-            styles={ TheMenuStyle.data(options) }
+const TheMenuStyle = ({id, className, options}) => (
+  <TheStyle {...{id}}
+            className={classnames('the-menu-style', className)}
+            styles={TheMenuStyle.data(options)}
   />
 )
 
@@ -25,7 +25,7 @@ TheMenuStyle.defaultProps = {
 }
 
 TheMenuStyle.data = (options) => {
-  const { ThemeValues } = TheStyle
+  const {ThemeValues} = TheStyle
   let {
     backgroundColor = ThemeValues.backgroundColor,
     overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
@@ -76,7 +76,7 @@ TheMenuStyle.data = (options) => {
       },
       '.the-menu-item-icon': {},
       '.the-menu-item-text': {},
-      '.the-menu-end': { display: 'none' }
+      '.the-menu-end': {display: 'none'}
     }),
     asStyleData('.the-menu.the-menu-grid', {
       '': {
@@ -119,8 +119,8 @@ TheMenuStyle.data = (options) => {
         alignItems: 'center',
         borderColor: '#AAA',
         cursor: 'pointer',
-        '&:hover': { opacity: hoverOpacity },
-        '&:active': { opacity: activeOpacity },
+        '&:hover': {opacity: hoverOpacity},
+        '&:active': {opacity: activeOpacity},
         '.the-dropdown-menu-button-text': {
           width: '100%'
         },
@@ -142,9 +142,10 @@ TheMenuStyle.data = (options) => {
         maxWidth: contentWidth,
         backgroundColor: overlayBackgroundColor,
         border: `1px solid transparent`,
+        opacity: 0,
         overflow: 'hidden',
         boxShadow: '0px 0px 0px rgba(0,0,0,0.33)',
-        transition: `box-shadow ${animationDuration}ms, border-color ${animationDuration}ms`,
+        transition: `opacity ${animationDuration}ms, box-shadow ${animationDuration}ms, border-color ${animationDuration}ms`
       },
       '.the-menu': {
         margin: 0
@@ -164,6 +165,7 @@ TheMenuStyle.data = (options) => {
         },
         '.the-dropdown-menu-inner': {
           borderColor: overlayBorderColor,
+          opacity: 1,
           boxShadow: '2px 2px 4px rgba(0,0,0,0.33)'
         }
       },
