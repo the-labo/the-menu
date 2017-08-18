@@ -16,15 +16,10 @@
         "returns": null
       },
       {
-        "name": "handleDocumentClick",
+        "name": "handleClickOutside",
         "docblock": null,
         "modifiers": [],
-        "params": [
-          {
-            "name": "e",
-            "type": null
-          }
-        ],
+        "params": [],
         "returns": null
       },
       {
@@ -83,6 +78,20 @@
         "description": "Show on righthand",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "eventsToClose": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Event types to close for",
+        "defaultValue": {
+          "value": "['hashchange']",
           "computed": false
         }
       }
