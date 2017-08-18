@@ -6,8 +6,9 @@ import { TheRouter } from 'the-router'
 
 class ExampleComponent extends React.PureComponent {
   render () {
-    const ExampleMenu = ({ grid = false }) => (
-      <TheMenu grid={ grid }>
+    const s = this
+    const ExampleMenu = ({grid = false}) => (
+      <TheMenu grid={grid}>
         <TheMenu.Item icon='fa fa-support' text='Help' to='/help'/>
         <TheMenu.Item icon='fa fa-info-circle' text='About' to='/about'/>
         <TheMenu.Item icon='fa fa-sign-out' text='Logout' onClick={() => console.log('logout!')}/>
@@ -37,11 +38,12 @@ class ExampleComponent extends React.PureComponent {
 
           <h3>Drop Down</h3>
 
-          <TheDropdownMenu label='Try me!'>
-            <TheDropdownMenu.Item>foo</TheDropdownMenu.Item>
-            <TheDropdownMenu.Item>bar</TheDropdownMenu.Item>
-            <TheDropdownMenu.Item>baz</TheDropdownMenu.Item>
-            <TheDropdownMenu.Item>quz</TheDropdownMenu.Item>
+          <TheDropdownMenu label='Try me!'
+          >
+            <TheDropdownMenu.Item to='foo'>foo</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item to='bar'>bar</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item to='baz'>baz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item to='quz'>quz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
           </TheDropdownMenu>
@@ -52,7 +54,6 @@ class ExampleComponent extends React.PureComponent {
           <br/>
           <br/>
         </TheRouter.Hash>
-
       </div>
     )
   }

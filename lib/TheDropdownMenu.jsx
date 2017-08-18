@@ -2,11 +2,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import TheMenu from './TheMenu'
 import TheMenuItem from './TheMenuItem'
 import { get } from 'the-window'
 import TheIcon from 'the-icon'
+import withClickOutside from 'react-click-outside'
 
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
@@ -18,8 +19,7 @@ class TheDropDownMenu extends React.PureComponent {
     super(props)
     const s = this
     s.state = {open: props.open}
-    s.handleDocumentClick = s.handleDocumentClick.bind(s)
-    s.elm = null
+    s.close = s.toggleDropDown.bind(s, false)
   }
 
   render () {
@@ -36,13 +36,12 @@ class TheDropDownMenu extends React.PureComponent {
     return (
       <div {...htmlAttributesFor(props, {except: ['className']})}
            {...eventHandlersFor(props, {except: []})}
-           className={classnames('the-dropdown-menu', className, {
+           className={c('the-dropdown-menu', className, {
              'the-dropdown-menu-open': open,
              'the-dropdown-menu-righted': righted
            })}
       >
-        <div className='the-dropdown-menu-content'
-             ref={(elm) => { s.elm = elm }}>
+        <div className='the-dropdown-menu-content'>
           <Button onClick={(e) => s.toggleDropDown()}>{label}</Button>
           <div className='the-dropdown-menu-inner'>
             <TheMenu>{children}</TheMenu>
@@ -64,27 +63,25 @@ class TheDropDownMenu extends React.PureComponent {
 
   componentDidMount () {
     const s = this
+    const {eventsToClose} = s.props
     const window = get('window')
-    window.addEventListener('click', s.handleDocumentClick)
+    for (const event of eventsToClose) {
+      window.addEventListener(event, s.close)
+    }
   }
 
   componentWillUnmount () {
     const s = this
+    const {eventsToClose} = s.props
     const window = get('window')
-    window.removeEventListener('click', s.handleDocumentClick)
+    for (const event of eventsToClose) {
+      window.removeEventListener(event, s.close)
+    }
   }
 
-  handleDocumentClick (e) {
+  handleClickOutside () {
     const s = this
-    const {elm} = s
-
-    if (!elm) {
-      return
-    }
-    const inside = elm.contains(e.target)
-    if (!inside) {
-      s.toggleDropDown(false)
-    }
+    s.toggleDropDown(false)
   }
 
   static Button (props) {
@@ -95,12 +92,12 @@ class TheDropDownMenu extends React.PureComponent {
     return (
       <a {...htmlAttributesFor(props, {except: ['className']})}
          {...eventHandlersFor(props, {except: []})}
-         className={classnames('the-dropdown-menu-button', className)}
+         className={c('the-dropdown-menu-button', className)}
       >
         <span className='the-dropdown-menu-button-text'>
           {children}
         </span>
-        <TheIcon className={classnames('the-dropdown-menu-button-icon', TheDropDownMenu.UP_ICON)}>
+        <TheIcon className={c('the-dropdown-menu-button-icon', TheDropDownMenu.UP_ICON)}>
         </TheIcon>
       </a>
     )
@@ -110,7 +107,7 @@ class TheDropDownMenu extends React.PureComponent {
     const {className} = props
     return (
       <TheMenuItem {...props}
-                   className={classnames('the-dropdown-menu-item', className)}
+                   className={c('the-dropdown-menu-item', className)}
       />
     )
   }
@@ -125,14 +122,19 @@ TheDropDownMenu.propTypes = {
   open: PropTypes.bool,
 
   /** Show on righthand */
-  righted: PropTypes.bool
+  righted: PropTypes.bool,
+
+  /** Event types to close for */
+  eventsToClose: PropTypes.arrayOf(PropTypes.string)
 }
 
 TheDropDownMenu.defaultProps = {
   open: false,
-  righted: false
+  righted: false,
+
+  eventsToClose: ['hashchange']
 }
 
 TheDropDownMenu.displayName = 'TheDropDownMenu'
 
-export default TheDropDownMenu
+export default withClickOutside(TheDropDownMenu)
