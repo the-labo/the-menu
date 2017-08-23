@@ -1,7 +1,7 @@
 /**
  * Menu of the-components
  * @module the-menu
- * @version 1.1.3
+ * @version 1.2.0
  */
 'use strict'
 

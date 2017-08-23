@@ -160,6 +160,7 @@ Drop down menu
 | `label` | node  | Label for toggle button | `` |
 | `open` | bool  | Open  when mounted | `false` |
 | `righted` | bool  | Show on righthand | `false` |
+| `eventsToClose` | arrayOf string | Event types to close for | `['hashchange']` |
 
 ### TheMenu
 
