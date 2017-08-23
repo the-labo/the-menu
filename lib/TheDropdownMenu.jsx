@@ -20,6 +20,7 @@ class TheDropDownMenu extends React.PureComponent {
     const s = this
     s.state = {open: props.open}
     s.close = s.toggleDropDown.bind(s, false)
+    s.unlistenHistory = null
   }
 
   render () {
@@ -65,8 +66,12 @@ class TheDropDownMenu extends React.PureComponent {
     const s = this
     const {eventsToClose} = s.props
     const window = get('window')
+    const {history} = s.context
     for (const event of eventsToClose) {
       window.addEventListener(event, s.close)
+    }
+    if (history) {
+      s.unlistenHistory = history.listen(s.close)
     }
   }
 
@@ -77,6 +82,7 @@ class TheDropDownMenu extends React.PureComponent {
     for (const event of eventsToClose) {
       window.removeEventListener(event, s.close)
     }
+    s.unlistenHistory && s.unlistenHistory()
   }
 
   handleClickOutside () {
@@ -136,5 +142,9 @@ TheDropDownMenu.defaultProps = {
 }
 
 TheDropDownMenu.displayName = 'TheDropDownMenu'
+
+TheDropDownMenu.contextTypes = {
+  history: PropTypes.object
+}
 
 export default withClickOutside(TheDropDownMenu)
