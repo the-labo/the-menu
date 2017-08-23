@@ -66,7 +66,7 @@ class TheDropDownMenu extends React.PureComponent {
     const s = this
     const {eventsToClose} = s.props
     const window = get('window')
-    const {history} = s.context
+    const history = s.context.history || s.props.history
     for (const event of eventsToClose) {
       window.addEventListener(event, s.close)
     }
