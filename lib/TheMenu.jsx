@@ -10,7 +10,7 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 /**
  * Menu of the-components
  */
-class TheMenu extends React.PureComponent {
+class TheMenu extends React.Component {
   render () {
     const s = this
     const { props } = s

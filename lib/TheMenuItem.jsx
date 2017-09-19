@@ -10,11 +10,11 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 /**
  * Menu of the-components
  */
-class TheMenuItem extends React.PureComponent {
+class TheMenuItem extends React.Component {
   render () {
     const s = this
-    const { props } = s
-    let {
+    const {props} = s
+    const {
       className,
       children,
       text,
@@ -24,13 +24,13 @@ class TheMenuItem extends React.PureComponent {
     } = props
     const Inner = to ? TheLink : 'span'
     return (
-      <li { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-          { ...eventHandlersFor(props, { except: [] })}
-          className={ classnames('the-menu-item', className, {
+      <li {...htmlAttributesFor(props, {except: ['className']})}
+          {...eventHandlersFor(props, {except: []})}
+          className={classnames('the-menu-item', className, {
             'the-menu-item-active': active
-          }) }
+          })}
       >
-        <Inner to={ to } className='the-menu-item-inner'>
+        <Inner to={to} className='the-menu-item-inner'>
           <TheIcon className={classnames('the-menu-item-icon', icon)}/>
           <span className='the-menu-item-text'>{text}</span>
           <span className='the-menu-item-children'>{children}</span>

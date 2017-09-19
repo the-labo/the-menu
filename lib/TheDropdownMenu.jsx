@@ -14,7 +14,7 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 /**
  * Drop down menu
  */
-class TheDropDownMenu extends React.PureComponent {
+class TheDropDownMenu extends React.Component {
   constructor (props) {
     super(props)
     const s = this
