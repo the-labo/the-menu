@@ -31,33 +31,33 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10",
-    "react-click-outside": "^2.3.1",
-    "the-component-util": "^1.4.1",
-    "the-icon": "^1.0.6",
-    "the-link": "^2.0.8",
-    "the-style": "^1.2.4",
-    "the-window": "^4.0.3"
+    "react-click-outside": "^3.0.0",
+    "the-component-util": "^1.5.1",
+    "the-icon": "^1.0.7",
+    "the-link": "^2.0.10",
+    "the-style": "^1.3.0",
+    "the-window": "^4.2.1"
   },
   "devDependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.2",
+    "react-router-dom": "^4.2.2",
     "the-component-demo": "^2.0.14",
-    "the-router": "^1.0.10",
+    "the-router": "^1.1.1",
     "the-script-build": "^1.3.5",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^1.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^1.1.4"
+    "the-templates": "^2.0.0"
   },
   "peerDependencies": {
     "react": ">=15",
     "react-dom": ">=15"
   },
   "engines": {
-    "node": ">=6",
+    "node": ">=7.6",
     "npm": ">=4"
   }
 }

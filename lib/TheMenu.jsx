@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import TheMenuStyle from './TheMenuStyle'
 import TheMenuItem from './TheMenuItem'
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
@@ -13,18 +13,18 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 class TheMenu extends React.Component {
   render () {
     const s = this
-    const { props } = s
-    let {
+    const {props} = s
+    const {
       className,
       children,
       grid
     } = props
     return (
-      <ul { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-          { ...eventHandlersFor(props, { except: [] })}
-          className={ classnames('the-menu', className, {
+      <ul {...htmlAttributesFor(props, {except: ['className']})}
+          {...eventHandlersFor(props, {except: []})}
+          className={c('the-menu', className, {
             'the-menu-grid': grid
-          }) }
+          })}
       >
         {children}
         <li className='the-menu-end'>

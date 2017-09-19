@@ -2,14 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import TheStyle from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheMenu */
 const TheMenuStyle = ({id, className, options}) => (
   <TheStyle {...{id}}
-            className={classnames('the-menu-style', className)}
+            className={c('the-menu-style', className)}
             styles={TheMenuStyle.data(options)}
   />
 )
