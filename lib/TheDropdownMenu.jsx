@@ -6,7 +6,7 @@ import c from 'classnames'
 import TheMenu from './TheMenu'
 import TheMenuItem from './TheMenuItem'
 import { get } from 'the-window'
-import TheIcon from 'the-icon'
+import { TheIcon } from 'the-icon'
 import withClickOutside from 'react-click-outside'
 
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
