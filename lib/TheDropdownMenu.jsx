@@ -17,15 +17,14 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 class TheDropDownMenu extends React.Component {
   constructor (props) {
     super(props)
-    const s = this
-    s.state = {open: props.open}
-    s.close = s.toggleDropDown.bind(s, false)
-    s.unlistenHistory = null
+    this.state = {open: props.open}
+    this.toggleDropDown = this.toggleDropDown.bind(this)
+    this.close = this.toggleDropDown.bind(this, false)
+    this.unlistenHistory = null
   }
 
   render () {
-    const s = this
-    const {props, state} = s
+    const {props, state} = this
     const {
       className,
       label,
@@ -43,7 +42,7 @@ class TheDropDownMenu extends React.Component {
            })}
       >
         <div className='the-dropdown-menu-content'>
-          <Button onClick={(e) => s.toggleDropDown()}>{label}</Button>
+          <Button onClick={this.toggleDropDown}>{label}</Button>
           <div className='the-dropdown-menu-inner'>
             <TheMenu>{children}</TheMenu>
           </div>
@@ -53,41 +52,37 @@ class TheDropDownMenu extends React.Component {
   }
 
   toggleDropDown (open) {
-    const s = this
     if (arguments.length === 0) {
-      open = !s.state.open
+      open = !this.state.open
     }
-    s.setState({
+    this.setState({
       open
     })
   }
 
   componentDidMount () {
-    const s = this
-    const {eventsToClose} = s.props
+    const {eventsToClose} = this.props
     const window = get('window')
-    const history = s.context.history || s.props.history
+    const history = this.context.history || this.props.history
     for (const event of eventsToClose) {
-      window.addEventListener(event, s.close)
+      window.addEventListener(event, this.close)
     }
     if (history) {
-      s.unlistenHistory = history.listen(s.close)
+      this.unlistenHistory = history.listen(this.close)
     }
   }
 
   componentWillUnmount () {
-    const s = this
-    const {eventsToClose} = s.props
+    const {eventsToClose} = this.props
     const window = get('window')
     for (const event of eventsToClose) {
-      window.removeEventListener(event, s.close)
+      window.removeEventListener(event, this.close)
     }
-    s.unlistenHistory && s.unlistenHistory()
+    this.unlistenHistory && this.unlistenHistory()
   }
 
   handleClickOutside () {
-    const s = this
-    s.toggleDropDown(false)
+    this.toggleDropDown(false)
   }
 
   static Button (props) {

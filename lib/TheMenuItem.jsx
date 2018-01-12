@@ -12,8 +12,7 @@ import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
  */
 class TheMenuItem extends React.Component {
   render () {
-    const s = this
-    const {props} = s
+    const {props} = this
     const {
       className,
       children,
