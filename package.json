@@ -34,7 +34,7 @@
     "react-click-outside": "^3.0.0",
     "the-component-util": "^2.1.0",
     "the-icon": "^4.0.1",
-    "the-link": "^3.0.4",
+    "the-link": "^3.0.6",
     "the-style": "^2.1.0",
     "the-window": "^5.3.3"
   },
@@ -42,7 +42,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "the-component-demo": "^4.0.2",
+    "the-component-demo": "^4.0.3",
     "the-router": "^2.0.6",
     "the-script-build": "^2.0.1",
     "the-script-doc": "^1.0.2",
