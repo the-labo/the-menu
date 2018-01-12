@@ -3,8 +3,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import c from 'classnames'
-import TheIcon from 'the-icon'
-import TheLink from 'the-link'
+import { TheIcon } from 'the-icon'
+import { TheLink } from 'the-link'
 import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
 /**
