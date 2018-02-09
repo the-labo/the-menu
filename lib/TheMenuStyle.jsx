@@ -72,7 +72,8 @@ TheMenuStyle.data = (options) => {
         flexDirection: 'row',
         alignItems: 'center',
         minHeight: tappableHeight,
-        padding: '0 8px'
+        padding: '4px 8px',
+        lineHeight: '1.25em',
       },
       '.the-menu-item-icon': {},
       '.the-menu-item-text': {},
