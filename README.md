@@ -129,6 +129,11 @@ class ExampleComponent extends React.PureComponent {
           <br/>
           <br/>
           <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
         </TheRouter.Hash>
       </div>
     )
