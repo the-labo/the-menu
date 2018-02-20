@@ -118,7 +118,7 @@ class ExampleComponent extends React.PureComponent {
           >
             <TheDropdownMenu.Item to='foo'>foo</TheDropdownMenu.Item>
             <TheDropdownMenu.Item to='bar'>bar</TheDropdownMenu.Item>
-            <TheDropdownMenu.Item to='baz'>baz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>baz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item to='quz'>quz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
@@ -157,10 +157,10 @@ Drop down menu
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
+| `eventsToClose` | arrayOf string | Event types to close for | `['hashchange']` |
 | `label` | node  | Label for toggle button | `` |
 | `open` | bool  | Open  when mounted | `false` |
 | `righted` | bool  | Show on righthand | `false` |
-| `eventsToClose` | arrayOf string | Event types to close for | `['hashchange']` |
 
 ### TheMenu
 
@@ -180,9 +180,9 @@ Menu of the-components
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
+| `active` | bool  | Active or not | `false` |
 | `icon` | string  | Icon class name | `null` |
 | `to` | string  | Link to | `null` |
-| `active` | bool  | Active or not | `false` |
 
 ### TheMenuStyle
 

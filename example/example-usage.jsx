@@ -42,13 +42,18 @@ class ExampleComponent extends React.PureComponent {
           >
             <TheDropdownMenu.Item to='foo'>foo</TheDropdownMenu.Item>
             <TheDropdownMenu.Item to='bar'>bar</TheDropdownMenu.Item>
-            <TheDropdownMenu.Item to='baz'>baz</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>baz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item to='quz'>quz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
           </TheDropdownMenu>
 
 
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <br/>
           <br/>
           <br/>

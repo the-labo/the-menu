@@ -70,7 +70,7 @@
         "type": {
           "name": "node"
         },
-        "required": true,
+        "required": false,
         "description": "Label for toggle button"
       },
       "open": {

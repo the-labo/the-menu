@@ -19,11 +19,13 @@ class TheDropDownMenu extends React.Component {
       children,
       className,
       icon = TheDropDownMenu.UP_ICON,
+      onClick,
     } = props
     return (
       <a {...htmlAttributesFor(props, {except: ['className']})}
          {...eventHandlersFor(props, {except: []})}
          className={c('the-dropdown-menu-button', className)}
+         {...{onClick}}
       >
         <span className='the-dropdown-menu-button-text'>
           {children}
@@ -48,6 +50,7 @@ class TheDropDownMenu extends React.Component {
     this.state = {open: props.open}
     this.toggleDropDown = this.toggleDropDown.bind(this)
     this.close = this.toggleDropDown.bind(this, false)
+    this.open = this.toggleDropDown.bind(this, true)
     this.unlistenHistory = null
   }
 
@@ -95,11 +98,10 @@ class TheDropDownMenu extends React.Component {
            })}
       >
         <div className='the-dropdown-menu-content'>
-          <TheDropDownMenu.Button icon={icon}
-                                  onClick={this.toggleDropDown}
-
+          <TheDropDownMenu.Button icon={label ? icon : null}
+                                  onClick={open ? this.close : this.open}
           >
-            {label}
+            {label || <TheIcon className={icon}/>}
           </TheDropDownMenu.Button>
           <div className='the-dropdown-menu-inner'>
             <TheMenu>{children}</TheMenu>
@@ -123,7 +125,7 @@ TheDropDownMenu.propTypes = {
   /** Event types to close for */
   eventsToClose: PropTypes.arrayOf(PropTypes.string),
   /** Label for toggle button */
-  label: PropTypes.node.isRequired,
+  label: PropTypes.node,
   /** Open  when mounted */
   open: PropTypes.bool,
   /** Show on righthand */
