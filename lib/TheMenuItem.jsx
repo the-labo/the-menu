@@ -1,11 +1,11 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import { TheIcon } from 'the-icon'
 import { TheLink } from 'the-link'
-import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
 /**
  * Menu of the-components
@@ -14,22 +14,22 @@ class TheMenuItem extends React.Component {
   render () {
     const {props} = this
     const {
-      className,
+      active,
       children,
+      className,
+      icon,
       text,
       to,
-      icon,
-      active
     } = props
     const Inner = to ? TheLink : 'span'
     return (
       <li {...htmlAttributesFor(props, {except: ['className']})}
           {...eventHandlersFor(props, {except: []})}
           className={c('the-menu-item', className, {
-            'the-menu-item-active': active
+            'the-menu-item-active': active,
           })}
       >
-        <Inner to={to} className='the-menu-item-inner'>
+        <Inner className='the-menu-item-inner' to={to}>
           <TheIcon className={c('the-menu-item-icon', icon)}/>
           <span className='the-menu-item-text'>{text}</span>
           <span className='the-menu-item-children'>{children}</span>
@@ -40,18 +40,18 @@ class TheMenuItem extends React.Component {
 }
 
 TheMenuItem.propTypes = {
+  /** Active or not */
+  active: PropTypes.bool,
   /** Icon class name */
   icon: PropTypes.string,
   /** Link to */
   to: PropTypes.string,
-  /** Active or not */
-  active: PropTypes.bool
 }
 
 TheMenuItem.defaultProps = {
+  active: false,
   icon: null,
   to: null,
-  active: false
 }
 
 TheMenuItem.displayName = 'TheMenuItem'

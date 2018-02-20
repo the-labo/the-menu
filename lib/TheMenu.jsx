@@ -1,11 +1,11 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
-import TheMenuStyle from './TheMenuStyle'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import TheMenuItem from './TheMenuItem'
-import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
+import TheMenuStyle from './TheMenuStyle'
 
 /**
  * Menu of the-components
@@ -14,15 +14,15 @@ class TheMenu extends React.Component {
   render () {
     const {props} = this
     const {
-      className,
       children,
-      grid
+      className,
+      grid,
     } = props
     return (
       <ul {...htmlAttributesFor(props, {except: ['className']})}
           {...eventHandlersFor(props, {except: []})}
           className={c('the-menu', className, {
-            'the-menu-grid': grid
+            'the-menu-grid': grid,
           })}
       >
         {children}
@@ -38,11 +38,11 @@ TheMenu.Item = TheMenuItem
 
 TheMenu.propTypes = {
   /** Grid layout */
-  grid: PropTypes.bool
+  grid: PropTypes.bool,
 }
 
 TheMenu.defaultProps = {
-  grid: false
+  grid: false,
 }
 
 TheMenu.displayName = 'TheMenu'
