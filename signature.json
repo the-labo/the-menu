@@ -4,25 +4,6 @@
     "displayName": "TheDropDownMenu",
     "methods": [
       {
-        "name": "toggleDropDown",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "open",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleClickOutside",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      },
-      {
         "name": "Button",
         "docblock": null,
         "modifiers": [
@@ -49,9 +30,42 @@
           }
         ],
         "returns": null
+      },
+      {
+        "name": "handleClickOutside",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "toggleDropDown",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "open",
+            "type": null
+          }
+        ],
+        "returns": null
       }
     ],
     "props": {
+      "eventsToClose": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "Event types to close for",
+        "defaultValue": {
+          "value": "['hashchange']",
+          "computed": false
+        }
+      },
       "label": {
         "type": {
           "name": "node"
@@ -80,20 +94,6 @@
           "value": "false",
           "computed": false
         }
-      },
-      "eventsToClose": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "string"
-          }
-        },
-        "required": false,
-        "description": "Event types to close for",
-        "defaultValue": {
-          "value": "['hashchange']",
-          "computed": false
-        }
       }
     }
   },
@@ -120,6 +120,17 @@
     "displayName": "TheMenuItem",
     "methods": [],
     "props": {
+      "active": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Active or not",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
       "icon": {
         "type": {
           "name": "string"
@@ -139,17 +150,6 @@
         "description": "Link to",
         "defaultValue": {
           "value": "null",
-          "computed": false
-        }
-      },
-      "active": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "Active or not",
-        "defaultValue": {
-          "value": "false",
           "computed": false
         }
       }
