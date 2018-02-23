@@ -46,6 +46,7 @@ class ExampleComponent extends React.PureComponent {
             <TheDropdownMenu.Item to='quz'>quz</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>1</TheDropdownMenu.Item>
             <TheDropdownMenu.Item>2</TheDropdownMenu.Item>
+            <TheDropdownMenu.Item>Long Long Long Long Long Text</TheDropdownMenu.Item>
           </TheDropdownMenu>
 
 

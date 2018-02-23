@@ -123,6 +123,11 @@ TheMenuStyle.data = (options) => {
         '.the-dropdown-menu-button-text': {
           width: '100%',
         },
+        '.the-menu-item-text': {
+          overflow: 'hidden',
+          textOverflow: 'ellipses',
+          whiteSpace: 'nowrap',
+        },
         '&:active': {opacity: activeOpacity},
         '&:hover': {opacity: hoverOpacity},
         alignItems: 'center',
@@ -134,7 +139,7 @@ TheMenuStyle.data = (options) => {
         backgroundColor: overlayBackgroundColor,
         border: `1px solid transparent`,
         boxShadow: '0px 0px 0px rgba(0,0,0,0.33)',
-        maxWidth: contentWidth,
+        maxWidth: '100vw',
         minWidth: tappableHeight * 3,
         opacity: 0,
         overflow: 'hidden',
