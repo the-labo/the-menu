@@ -140,7 +140,7 @@ TheMenuStyle.data = (options) => {
         overflow: 'hidden',
         position: 'absolute',
         transition: `opacity ${animationDuration}ms, box-shadow ${animationDuration}ms, border-color ${animationDuration}ms`,
-        width: '100%',
+        width: 'auto',
         zIndex: 8,
       },
       '.the-menu': {
