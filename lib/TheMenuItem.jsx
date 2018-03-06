@@ -51,6 +51,7 @@ TheMenuItem.propTypes = {
 TheMenuItem.defaultProps = {
   active: false,
   icon: null,
+  role: 'menuitem',
   to: null,
 }
 

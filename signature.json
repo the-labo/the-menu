@@ -94,6 +94,12 @@
           "value": "false",
           "computed": false
         }
+      },
+      "role": {
+        "defaultValue": {
+          "value": "'menu'",
+          "computed": false
+        }
       }
     }
   },
@@ -110,6 +116,12 @@
         "description": "Grid layout",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "role": {
+        "defaultValue": {
+          "value": "'menu'",
           "computed": false
         }
       }
@@ -150,6 +162,12 @@
         "description": "Link to",
         "defaultValue": {
           "value": "null",
+          "computed": false
+        }
+      },
+      "role": {
+        "defaultValue": {
+          "value": "'menuitem'",
           "computed": false
         }
       }

@@ -167,6 +167,7 @@ Drop down menu
 | `label` | node  | Label for toggle button | `` |
 | `open` | bool  | Open  when mounted | `false` |
 | `righted` | bool  | Show on righthand | `false` |
+| `role` |   |  | `'menu'` |
 
 ### TheMenu
 
@@ -177,6 +178,7 @@ Menu of the-components
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `grid` | bool  | Grid layout | `false` |
+| `role` |   |  | `'menu'` |
 
 ### TheMenuItem
 
@@ -189,6 +191,7 @@ Menu of the-components
 | `active` | bool  | Active or not | `false` |
 | `icon` | string  | Icon class name | `null` |
 | `to` | string  | Link to | `null` |
+| `role` |   |  | `'menuitem'` |
 
 ### TheMenuStyle
 

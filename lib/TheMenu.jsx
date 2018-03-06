@@ -43,6 +43,7 @@ TheMenu.propTypes = {
 
 TheMenu.defaultProps = {
   grid: false,
+  role: 'menu',
 }
 
 TheMenu.displayName = 'TheMenu'

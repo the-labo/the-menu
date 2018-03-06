@@ -25,6 +25,7 @@ class TheDropDownMenu extends React.Component {
       <a {...htmlAttributesFor(props, {except: ['className']})}
          {...eventHandlersFor(props, {except: []})}
          className={c('the-dropdown-menu-button', className)}
+         role='menubar'
          {...{onClick}}
       >
         <span className='the-dropdown-menu-button-text'>
@@ -41,6 +42,7 @@ class TheDropDownMenu extends React.Component {
     return (
       <TheMenuItem {...props}
                    className={c('the-dropdown-menu-item', className)}
+                   role='menuItem'
       />
     )
   }
@@ -90,7 +92,7 @@ class TheDropDownMenu extends React.Component {
     } = props
     const {open} = state
     return (
-      <div {...htmlAttributesFor(props, {except: ['className']})}
+      <div {...htmlAttributesFor(props, {except: ['className', 'label']})}
            {...eventHandlersFor(props, {except: []})}
            className={c('the-dropdown-menu', className, {
              'the-dropdown-menu-open': open,
@@ -98,13 +100,14 @@ class TheDropDownMenu extends React.Component {
            })}
       >
         <div className='the-dropdown-menu-content'>
-          <TheDropDownMenu.Button icon={label ? icon : null}
+          <TheDropDownMenu.Button aria-expanded={open}
+                                  icon={label ? icon : null}
                                   onClick={open ? this.close : this.open}
           >
             {label || <TheIcon className={icon}/>}
           </TheDropDownMenu.Button>
           <div className='the-dropdown-menu-inner'>
-            <TheMenu>{children}</TheMenu>
+            <TheMenu role='none'>{children}</TheMenu>
           </div>
         </div>
       </div>
@@ -136,6 +139,7 @@ TheDropDownMenu.defaultProps = {
   eventsToClose: ['hashchange'],
   open: false,
   righted: false,
+  role: 'menu',
 }
 
 TheDropDownMenu.displayName = 'TheDropDownMenu'
