@@ -134,6 +134,8 @@ TheMenuStyle.data = (options) => {
         borderColor: '#AAA',
         cursor: 'pointer',
         display: 'flex',
+        minHeight: '36px',
+        padding: '0 4px',
       },
       '.the-dropdown-menu-inner': {
         backgroundColor: overlayBackgroundColor,

@@ -16,24 +16,24 @@
     "react-click-outside": "^3.0.1",
     "the-component-util": "^2.2.1",
     "the-icon": "^4.0.4",
-    "the-link": "^3.0.8",
+    "the-link": "^3.0.9",
     "the-style": "^2.1.0",
-    "the-window": "^6.0.1"
+    "the-window": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.0.0-beta.40",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "@babel/runtime": "*",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
     "the-component-demo": "^4.0.6",
     "the-router": "^2.0.7",
-    "the-script-build": "^3.1.4",
+    "the-script-build": "^3.1.7",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.1.0",
     "the-script-update": "^1.0.0",
-    "the-templates": "^3.1.4"
+    "the-templates": "^3.1.7"
   },
   "engines": {
     "node": ">=7.6",
