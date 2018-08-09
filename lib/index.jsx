@@ -11,9 +11,8 @@ import TheMenuItem from './TheMenuItem'
 import TheMenuStyle from './TheMenuStyle'
 
 export {
-  TheDropdownMenu,
-  TheMenu,
-  TheMenuItem,
-  TheMenuStyle,
+ TheDropdownMenu,
+ TheMenu,
+ TheMenuItem,
+ TheMenuStyle,
 }
-
