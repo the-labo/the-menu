@@ -12,15 +12,15 @@ import TheMenuStyle from './TheMenuStyle'
  */
 class TheMenu extends React.Component {
   render () {
-    const {props} = this
+    const { props } = this
     const {
       children,
       className,
       grid,
     } = props
     return (
-      <ul {...htmlAttributesFor(props, {except: ['className']})}
-          {...eventHandlersFor(props, {except: []})}
+      <ul {...htmlAttributesFor(props, { except: ['className'] })}
+          {...eventHandlersFor(props, { except: [] })}
           className={c('the-menu', className, {
             'the-menu-grid': grid,
           })}

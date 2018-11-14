@@ -22,11 +22,11 @@ class TheDropDownMenu extends React.Component {
       onClick,
     } = props
     return (
-      <a {...htmlAttributesFor(props, {except: ['className']})}
-         {...eventHandlersFor(props, {except: []})}
+      <a {...htmlAttributesFor(props, { except: ['className'] })}
+         {...eventHandlersFor(props, { except: [] })}
          className={c('the-dropdown-menu-button', className)}
          role='menubar'
-         {...{onClick}}
+         {...{ onClick }}
       >
         <span className='the-dropdown-menu-button-text'>
           {children}
@@ -38,7 +38,7 @@ class TheDropDownMenu extends React.Component {
   }
 
   static Item (props) {
-    const {className} = props
+    const { className } = props
     return (
       <TheMenuItem {...props}
                    className={c('the-dropdown-menu-item', className)}
@@ -49,7 +49,7 @@ class TheDropDownMenu extends React.Component {
 
   constructor (props) {
     super(props)
-    this.state = {open: props.open}
+    this.state = { open: props.open }
     this.toggleDropDown = this.toggleDropDown.bind(this)
     this.close = this.toggleDropDown.bind(this, false)
     this.open = this.toggleDropDown.bind(this, true)
@@ -57,7 +57,7 @@ class TheDropDownMenu extends React.Component {
   }
 
   componentDidMount () {
-    const {eventsToClose} = this.props
+    const { eventsToClose } = this.props
     const window = get('window')
     const history = this.context.history || this.props.history
     for (const event of eventsToClose) {
@@ -69,7 +69,7 @@ class TheDropDownMenu extends React.Component {
   }
 
   componentWillUnmount () {
-    const {eventsToClose} = this.props
+    const { eventsToClose } = this.props
     const window = get('window')
     for (const event of eventsToClose) {
       window.removeEventListener(event, this.close)
@@ -82,7 +82,7 @@ class TheDropDownMenu extends React.Component {
   }
 
   render () {
-    const {props, state} = this
+    const { props, state } = this
     const {
       children,
       className,
@@ -90,10 +90,10 @@ class TheDropDownMenu extends React.Component {
       label,
       righted,
     } = props
-    const {open} = state
+    const { open } = state
     return (
-      <div {...htmlAttributesFor(props, {except: ['className', 'label']})}
-           {...eventHandlersFor(props, {except: []})}
+      <div {...htmlAttributesFor(props, { except: ['className', 'label'] })}
+           {...eventHandlersFor(props, { except: [] })}
            className={c('the-dropdown-menu', className, {
              'the-dropdown-menu-open': open,
              'the-dropdown-menu-righted': righted,
@@ -118,7 +118,7 @@ class TheDropDownMenu extends React.Component {
     if (arguments.length === 0) {
       open = !this.state.open
     }
-    this.setState({open})
+    this.setState({ open })
   }
 }
 

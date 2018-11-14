@@ -12,7 +12,7 @@ import { TheLink } from 'the-link'
  */
 class TheMenuItem extends React.Component {
   render () {
-    const {props} = this
+    const { props } = this
     const {
       active,
       children,
@@ -23,8 +23,8 @@ class TheMenuItem extends React.Component {
     } = props
     const Inner = to ? TheLink : 'span'
     return (
-      <li {...htmlAttributesFor(props, {except: ['className']})}
-          {...eventHandlersFor(props, {except: []})}
+      <li {...htmlAttributesFor(props, { except: ['className'] })}
+          {...eventHandlersFor(props, { except: [] })}
           className={c('the-menu-item', className, {
             'the-menu-item-active': active,
           })}

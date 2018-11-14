@@ -7,8 +7,8 @@ import { asStyleData } from 'the-component-util'
 import { TheStyle } from 'the-style'
 
 /** Style for TheMenu */
-const TheMenuStyle = ({className, id, options}) => (
-  <TheStyle {...{id}}
+const TheMenuStyle = ({ className, id, options }) => (
+  <TheStyle {...{ id }}
             className={c('the-menu-style', className)}
             styles={TheMenuStyle.data(options)}
   />
@@ -25,7 +25,7 @@ TheMenuStyle.defaultProps = {
 }
 
 TheMenuStyle.data = (options) => {
-  const {ThemeValues} = TheStyle
+  const { ThemeValues } = TheStyle
   let {
     activeOpacity = ThemeValues.activeOpacity,
     animationDuration = 200,
@@ -39,8 +39,17 @@ TheMenuStyle.data = (options) => {
     tappableHeight = ThemeValues.tappableHeight,
   } = options
   return Object.assign({},
-    asStyleData('.the-menu', {
-      '.the-menu-end': {display: 'none'},
+    asStyleData({
+      '.the-menu': {
+        backgroundColor,
+        display: 'flex',
+        flexDirection: 'column',
+        listStyle: 'none',
+        margin: '8px 0',
+        maxWidth: contentWidth,
+        padding: 0,
+      },
+      '.the-menu-end': { display: 'none' },
       '.the-menu-item': {
         borderBottom: `1px solid ${lightBorderColor}`,
         cursor: 'pointer',
@@ -69,18 +78,14 @@ TheMenuStyle.data = (options) => {
       '.the-menu-item:hover': {
         opacity: hoverOpacity,
       },
-      '': {
-        backgroundColor,
-        display: 'flex',
-        flexDirection: 'column',
-        listStyle: 'none',
-        margin: '8px 0',
-        maxWidth: contentWidth,
-        padding: 0,
-      },
     }),
-    asStyleData('.the-menu.the-menu-grid', {
-      '.ap-menu-end': {
+    asStyleData({
+      '.the-menu.the-menu-grid': {
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+      },
+      '.the-menu.the-menu-grid .ap-menu-end': {
         display: 'inline-block',
         flex: 'auto',
         height: 0,
@@ -88,28 +93,36 @@ TheMenuStyle.data = (options) => {
         pointerEvents: 'none',
         width: 0,
       },
-      '.the-menu-item': {
+      '.the-menu.the-menu-grid .the-menu-item': {
         border: 'none',
         minWidth: '20%',
       },
-      '.the-menu-item-icon': {
+      '.the-menu.the-menu-grid .the-menu-item-icon': {
         fontSize: '2em',
       },
-      '.the-menu-item-inner': {
+      '.the-menu.the-menu-grid .the-menu-item-inner': {
         flexDirection: 'column',
         padding: '16px',
         textDecoration: 'none',
       },
-      '.the-menu-item-text': {
+      '.the-menu.the-menu-grid .the-menu-item-text': {
         fontSize: 'smaller',
       },
-      '': {
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-      },
     }),
-    asStyleData('.the-dropdown-menu', {
+    asStyleData({
+      '.the-dropdown-menu': {
+        display: 'inline-block',
+        maxWidth: contentWidth,
+        position: 'relative',
+      },
+      '.the-dropdown-menu .the-menu': {
+        margin: 0,
+      },
+      '.the-dropdown-menu .the-menu-item': {
+        marginBottom: '-1px',
+        maxHeight: '0em',
+        transition: `max-height ${animationDuration}ms`,
+      },
       '.the-dropdown-menu-button': {
         '.the-dropdown-menu-button-icon': {
           boxSizing: 'border-box',
@@ -128,8 +141,8 @@ TheMenuStyle.data = (options) => {
           textOverflow: 'ellipses',
           whiteSpace: 'nowrap',
         },
-        '&:active': {opacity: activeOpacity},
-        '&:hover': {opacity: hoverOpacity},
+        '&:active': { opacity: activeOpacity },
+        '&:hover': { opacity: hoverOpacity },
         alignItems: 'center',
         borderColor: '#AAA',
         cursor: 'pointer',
@@ -150,20 +163,7 @@ TheMenuStyle.data = (options) => {
         width: 'max-content',
         zIndex: 8,
       },
-      '.the-menu': {
-        margin: 0,
-      },
-      '.the-menu-item': {
-        marginBottom: '-1px',
-        maxHeight: '0em',
-        transition: `max-height ${animationDuration}ms`,
-      },
-      '&': {
-        display: 'inline-block',
-        maxWidth: contentWidth,
-        position: 'relative',
-      },
-      '&.the-dropdown-menu-open': {
+      '.the-dropdown-menu.the-dropdown-menu-open': {
         '.the-dropdown-menu-button-icon': {
           transform: 'rotate(0deg)',
         },
@@ -177,7 +177,7 @@ TheMenuStyle.data = (options) => {
           maxHeight: '3em',
         },
       },
-      '&.the-dropdown-menu-righted': {
+      '.the-dropdown-menu.the-dropdown-menu-righted': {
         '.the-dropdown-menu-inner': {
           left: 'auto',
           right: '0',
