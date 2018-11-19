@@ -4,7 +4,7 @@ import c from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import withClickOutside from 'react-click-outside'
-import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
+import { changedProps, eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import { TheIcon } from 'the-icon'
 import { get } from 'the-window'
 import TheMenu from './TheMenu'
@@ -56,15 +56,27 @@ class TheDropDownMenu extends React.Component {
     this.unlistenHistory = null
   }
 
-  componentDidMount () {
+  bindHistory (history) {
     const { eventsToClose } = this.props
     const window = get('window')
-    const history = this.context.history || this.props.history
     for (const event of eventsToClose) {
       window.addEventListener(event, this.close)
     }
+    this.unlistenHistory && this.unlistenHistory()
     if (history) {
       this.unlistenHistory = history.listen(this.close)
+    }
+  }
+
+  componentDidMount () {
+    const history = this.context.history || this.props.history
+    this.bindHistory(history)
+  }
+
+  componentDidUpdate (prevProps) {
+    const diff = changedProps(prevProps, this.props)
+    if ('history' in diff) {
+      this.bindHistory(this.props.history)
     }
   }
 

@@ -32,6 +32,18 @@
         "returns": null
       },
       {
+        "name": "bindHistory",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "history",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "handleClickOutside",
         "docblock": null,
         "modifiers": [],
